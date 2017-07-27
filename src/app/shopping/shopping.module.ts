@@ -6,9 +6,12 @@ import {ProductService} from "../services/product.service";
 import {CartService} from "../services/cart.service";
 import {FormsModule} from "@angular/forms"
 import {DetailsComponent} from "./details.component";
+import {RouterModule} from "@angular/router";
 @NgModule({
   imports: [
-    CommonModule,FormsModule],
+    CommonModule,FormsModule,RouterModule.forChild([
+      {path:'details/:id',component:DetailsComponent}
+    ])],
   declarations: [ProductListComponent, CartItemsComponent,DetailsComponent],
   exports:[ProductListComponent,CartItemsComponent],
   providers:[ProductService,CartService]

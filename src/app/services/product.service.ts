@@ -28,4 +28,9 @@ export class ProductService{
   {
     return this.http.delete(this.restUrl+"/"+productId,this.requestOption)
   }
+
+  getSPecificProductData(productId:string)
+  {
+    return this.http.get(this.restUrl+"/"+productId);
+  }
 }

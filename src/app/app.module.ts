@@ -8,6 +8,7 @@ import {ShoppingModule} from "./shopping/shopping.module";
 import {HomeComponent, ListComponent, ManageProductComponent, NotFoundComponent} from "./routes.components";
 import {RouterModule} from "@angular/router";
 import {HttpModule} from "@angular/http";
+import {ReversePipe} from "./app.pipe";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpModule} from "@angular/http";
     HomeComponent,
     ListComponent,
     NotFoundComponent,
-    ManageProductComponent
+    ManageProductComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

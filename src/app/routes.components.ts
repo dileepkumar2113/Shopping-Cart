@@ -1,11 +1,30 @@
 import {Component} from "@angular/core";
 import {ProductService} from "./services/product.service";
 import {Product} from "./models/product.model";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  template:`<h3>Welcome To Shopping Cart</h3>`
+  template:`
+    <h3>Welcome To Shopping Cart</h3>
+    Price : {{price|currency:'INR'|lowercase}}
+    <br>Current Date : {{myDate|date:'MM/dd/yyyy'}}
+    <br>Current Time : {{myDate|date:'shortTime'}}
+    <br>Product : {{productName|uppercase}}
+    <br>Reverse : {{productName|slice:4|lowercase|reverseText}}
+    <br>
+    <br> 
+    <iframe width="640" height="360" [src]="trustUrl" frameborder="0" allowfullscreen></iframe>
+  `
 })
 export class HomeComponent{
+  price = 100.1234;
+  myDate = new Date();
+  productName : string = "Sony Tv";
+  videoUrl="https://www.youtube.com/embed/ue80QwXMRHg";
+  trustUrl;
+  constructor(private sanitizer: DomSanitizer){
+    this.trustUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
+  }
 
 }
 
