@@ -1,0 +1,26 @@
+<h3>Manage Products View</h3>
+<form class="well">
+  <input placeholder="Enter Product Name" [(ngModel)]="formProduct.name" name="txtName">
+  <input placeholder="Enter Product Price" [(ngModel)]="formProduct.price" name="txtPrice">
+  <input placeholder="Enter Description" [(ngModel)]="formProduct.description" name="txtDesc">
+  <button class="btn btn-primary" (click)="addProduct(formProduct)">Save</button>
+</form>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let product of productList;let i = index">
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>
+      <button class="btn btn-success" (click)="edit(product)">Edit</button>
+      <button class="btn btn-danger" (click)="removeProduct(product.id,i)">Delete</button>
+    </td>
+  </tr>
+</table>
